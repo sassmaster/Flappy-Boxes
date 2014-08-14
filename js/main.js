@@ -13,11 +13,11 @@ var mainState = {
     //Which is where we'll load our assets for the game 
     
     //Set the background color of the game 
-    game.stage.backgroundColor = "#71c5cf";
+    game.stage.backgroundColor = "#1134d2";
     
-    game.load.image('bird', 'assets/bird.png');
+    game.load.image('bird', 'assets/nemo.gif');
     
-    game.load.image('pipe', 'assets/pipe.png');
+    game.load.image('pipe', 'assets/jellyfish.gif');
     
     
   },
