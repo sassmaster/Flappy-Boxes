@@ -15,6 +15,10 @@ var mainState = {
     //Set the background color of the game 
     game.stage.backgroundColor = "#71c5cf";
     
+    game.load.image('bird', 'assets/bird.png');
+    
+    game.load.image('pipe', 'assets/pipe.png');
+    
     
   },
   
@@ -22,13 +26,49 @@ var mainState = {
   create: function () {
     //This function is called right after perload function
     //This is where we set up the game assets from earlier
+    
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+    
+    this.bird = this.game.add.sprite(100, 245, 'bird');
+    
+    
+    //Now that we have a bird and gravity...we need to tell the bird 
+    //to react to the gravity
+    
+    game.physics.arcade.enable(this.bird);
+    
+    this.bird.body.gravity.y = 1000;
+    
+    var spaceKey = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+    
+    spaceKey.onDown.add(this.jump, this);
 },
 
   update: function () {
     //This function runs 60 times per second
+    
+    
+    //Check if the bird is outdside of the gamescreen
+    if (this.bird.inWorld == false) {
+      this.restartGame();
+    }
+    
+    
+},
+
+
+  jump: function () {
+  
+  //Let's make our bird jump!
+  this.bird.body.velocity.y = -350;
 },
   
-}
+  restartGame: function () {
+  
+    game.state.start('main');
+},
+
+};
 
 
 //Add and start the 'mainState' to start the game
