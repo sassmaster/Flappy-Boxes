@@ -1,6 +1,6 @@
 //Initialize Phaser Engine. Create a 400x490px game!
 
-var game = new Phaser.Game(4000,490, Phaser.AUTO, 'gameDiv');
+var game = new Phaser.Game(400,490, Phaser.AUTO, 'gameDiv');
 
 //Create our 'main' state that will contain the game
 //This is the body of the game itself
